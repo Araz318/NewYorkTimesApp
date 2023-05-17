@@ -1,0 +1,70 @@
+//
+//  LoginController.swift
+//  NewYorkTimesApp
+//
+//  Created by Araz Muradov on 15.05.23.
+//
+
+import UIKit
+
+class LoginController: UIViewController {
+  
+   
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordText: UITextField!
+    var profiles = [Profile]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    
+    func getFilePath() -> URL {
+        //        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        //        let docDirectory = paths[0]
+        //        let path = docDirectory.appendingPathComponent("Users.json")
+        //        print(path)
+        //        return path
+        //    }
+        //
+        //    func readDataFromFile() {
+        //        if let data = try? Data(contentsOf: getFilePath()) {
+        //            do {
+        //                profiles = try JSONDecoder().decode([Profile].self, from: data)
+        //            } catch {
+        //                print(error.localizedDescription)
+        //            }
+        //        } else {
+        //            print("file not exist")
+        //        }
+        //    }
+        
+        
+        
+        
+        func buttonTapped(_ sender: Any) {
+            //        if let email = emailTextField.text,
+            //           let password = passwordText.text,
+            //           !email.isEmpty, !password.isEmpty
+            //        {
+            //            readDataFromFile()
+            //
+            //            if profiles.contains(where: { $0.email == email && $0.password == password }) {
+            //                let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "\(HomeController.self)") as! HomeController
+            //                navigationController?.show(controller, sender: nil)
+            //            }
+            //
+            //        } else {
+            //            print("Sehv melumat daxil etdiniz, tekrar yoxlayin")
+            //        }
+            //      }
+            //
+            //
+            //    @IBAction func registerButton(_ sender: Any) {
+            //        let controller = storyboard?.instantiateViewController(identifier: "RegisterController") as! RegisterController
+            //        navigationController?.show(controller, sender: nil)
+            //    }
+            //}
+        } 
+    }

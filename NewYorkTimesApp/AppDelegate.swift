@@ -11,11 +11,22 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+       // Override point for customizationAfterApplicationLaunch.
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let viewController = storyboard.instantiateViewController(withIdentifier: "LoginController")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            self.window?.rootViewController = viewController
+//            self.window?.makeKeyAndVisible()
+//
+            
+//        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+//              exit(0)
+//          }
         return true
+       
     }
 
     // MARK: UISceneSession Lifecycle
