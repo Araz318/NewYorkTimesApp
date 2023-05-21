@@ -4,10 +4,10 @@ import Foundation
 
 struct TopStory: Codable {
     let status, copyright, section: String?
-    let lastUpdated: Date?
+    let lastUpdated: String?
     let numResults: Int?
     let results: [TopStoryResult]?
-
+    
     enum CodingKeys: String, CodingKey {
         case status, copyright, section
         case lastUpdated = "last_updated"
@@ -16,10 +16,15 @@ struct TopStory: Codable {
     }
 }
 
-struct TopStoryResult: Codable,TopStoryProtocol {
-  var timetext: String {
-    createdDate ?? ""
-}
+struct TopStoryResult: Codable, TopStoryProtocol {
+    
+    var abstracttext: String {
+        abstract ?? ""
+    }
+    
+    var timetext: String {
+        updatedDate ?? ""
+    }
     
     var texttext: String {
         title ?? ""
@@ -42,7 +47,7 @@ struct TopStoryResult: Codable,TopStoryProtocol {
     let desFacet, orgFacet, perFacet, geoFacet: [String]?
     let multimedia: [Multimedia]?
     let shortURL: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case section, subsection, title, abstract, url, uri, byline
         case itemType = "item_type"

@@ -8,5 +8,6 @@ target 'NewYorkTimesApp' do
  pod 'Alamofire'
  pod 'SDWebImage'
  pod  'PanModal'
+ pod 'GoogleSignIn'
 
 end

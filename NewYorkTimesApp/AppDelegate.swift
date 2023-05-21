@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        //311969943522-tnhal53lh81cto5md36lra2k7ns147p4.apps.googleusercontent.com
        // Override point for customizationAfterApplicationLaunch.
 //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
 //            let viewController = storyboard.instantiateViewController(withIdentifier: "LoginController")
