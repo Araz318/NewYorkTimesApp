@@ -25,7 +25,7 @@ class SearchCell: UICollectionViewCell {
     }
     func configure (data:SearchProtocol) {
         label.text = data.labeltext
-        image.loadImage(from: data.imageUrl)
+        image.loadImage( from: data.imageUrl)
         timeLabel.text = data.timetext
     }
 

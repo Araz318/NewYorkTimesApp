@@ -11,6 +11,6 @@ class CustomCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var label: UILabel!
-    
+    @IBOutlet weak var timeLabel: UILabel!
     
 }

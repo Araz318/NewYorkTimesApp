@@ -12,11 +12,12 @@ class SearchController: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
     var searchModel = SearchViewModel()
     private let cellId = "\(SearchCell.self)"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configreUI()
         configsearchModel()
-        
+        title = "Search"
     }
     func configsearchModel() {
         searchModel.successCallback = {
@@ -45,9 +46,14 @@ extension SearchController: UICollectionViewDataSource, UICollectionViewDelegate
         cell.configure(data: searchModel.search[indexPath.item])
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SearchDetailController") as! SearchDetailController
+        controller.search = searchModel.search[indexPath.item]
+        navigationController?.show(controller, sender: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collection.frame.width , height: 200)
+        return CGSize(width: collection.frame.width , height: 300)
     }
 }
 

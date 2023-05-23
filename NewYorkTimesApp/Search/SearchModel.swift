@@ -29,7 +29,7 @@ var labeltext: String {
     
     var imageUrl: String {
         if let multimedia = multimedia, let url = multimedia.first?.url {
-            return url
+            return "https://static01.nyt.com/" + url 
         } else {
             return ""
         }

@@ -16,32 +16,44 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGA-f9-23c">
-                        <rect key="frame" x="8" y="8.0000000000000018" width="304" height="28.666666666666671"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGA-f9-23c">
+                        <rect key="frame" x="8" y="20.333333333333332" width="304" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-u7-pQX">
-                        <rect key="frame" x="8" y="52.666666666666664" width="304" height="106.33333333333334"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNC-u7-pQX">
+                        <rect key="frame" x="8" y="60.333333333333336" width="304" height="98.666666666666657"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZkD-Tl-TQA">
+                        <rect key="frame" x="8" y="28.333333333333329" width="32.666666666666664" height="16"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="SNC-u7-pQX" secondAttribute="trailing" constant="8" id="4jw-GX-N2L"/>
-                    <constraint firstItem="yGA-f9-23c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="8Cm-RW-2E5"/>
-                    <constraint firstAttribute="trailing" secondItem="yGA-f9-23c" secondAttribute="trailing" constant="8" id="9hG-fO-Dwb"/>
-                    <constraint firstItem="SNC-u7-pQX" firstAttribute="top" secondItem="yGA-f9-23c" secondAttribute="bottom" constant="16" id="EjZ-Kd-QGA"/>
-                    <constraint firstItem="SNC-u7-pQX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="MWv-lL-NTW"/>
-                    <constraint firstAttribute="bottom" secondItem="SNC-u7-pQX" secondAttribute="bottom" id="R7s-a3-5k5"/>
-                    <constraint firstItem="yGA-f9-23c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="U50-uR-uej"/>
+                    <constraint firstItem="SNC-u7-pQX" firstAttribute="top" secondItem="ZkD-Tl-TQA" secondAttribute="bottom" constant="16" id="2Vl-Fn-nvr"/>
+                    <constraint firstItem="yGA-f9-23c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20.329999999999998" id="5Na-5Q-6HB"/>
+                    <constraint firstAttribute="trailing" secondItem="yGA-f9-23c" secondAttribute="trailing" constant="8" id="5uc-Ah-YVt"/>
+                    <constraint firstItem="ZkD-Tl-TQA" firstAttribute="top" secondItem="yGA-f9-23c" secondAttribute="bottom" constant="8" id="Mij-3u-rWR"/>
+                    <constraint firstItem="yGA-f9-23c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="NNQ-fC-sy8"/>
+                    <constraint firstItem="ZkD-Tl-TQA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="OwI-h0-fdP"/>
+                    <constraint firstAttribute="trailing" secondItem="SNC-u7-pQX" secondAttribute="trailing" constant="8" id="Pck-FZ-Lpt"/>
+                    <constraint firstAttribute="trailing" secondItem="SNC-u7-pQX" secondAttribute="trailing" constant="8" id="PoQ-ep-bnW"/>
+                    <constraint firstItem="SNC-u7-pQX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="gAw-e5-XJr"/>
+                    <constraint firstAttribute="bottom" secondItem="SNC-u7-pQX" secondAttribute="bottom" id="hFp-pg-kBV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="label" destination="SNC-u7-pQX" id="hgG-qd-T5i"/>
+                <outlet property="timeLabel" destination="ZkD-Tl-TQA" id="F1U-QI-oWk"/>
                 <outlet property="titleLabel" destination="yGA-f9-23c" id="Gmn-nQ-X07"/>
             </connections>
             <point key="canvasLocation" x="-135.87786259541986" y="-128.52112676056339"/>

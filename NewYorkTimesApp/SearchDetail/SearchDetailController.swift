@@ -1,38 +1,37 @@
 //
-//  DetailController.swift
+//  SearchDetailController.swift
 //  NewYorkTimesApp
 //
-//  Created by Araz Muradov on 19.05.23.
+//  Created by Araz Muradov on 22.05.23.
 //
 
 import UIKit
-class DetailController: UIViewController {
-    @IBOutlet private weak var image: UIImageView!
-    @IBOutlet weak var detailTable: UITableView!
+
+class SearchDetailController: UIViewController {
+    @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var searchDetailTable: UITableView!
     private let cellId = "CustomCell"
-    var story: TopStoryResult?
-    
+    var search : SearchResult?
     override func viewDidLoad() {
         super.viewDidLoad()
         configreUI()
         navigationBarDesing()
-        loadImage()        
+        loadImage()
     }
     func loadImage() {
-        image.loadImage(from: story?.imageUrl ?? "")
+        image.loadImage(from: search?.imageUrl ?? "")
     }
     func configreUI() {
-        detailTable.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
+        searchDetailTable.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         image.layer.cornerRadius = 12
     }
-    
     func navigationBarDesing() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
     }
 }
-extension DetailController:UITableViewDelegate,UITableViewDataSource {
+extension SearchDetailController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -40,9 +39,9 @@ extension DetailController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as! CustomCell
-        cell.label.text = story?.abstracttext
-        cell.titleLabel.text = story?.title
-        cell.timeLabel.text = story?.updatedDate
+        //cell.label.text = search?.labeltext
+        cell.titleLabel.text = search?.labeltext
+        cell.timeLabel.text = search?.timetext
         cell.label.numberOfLines = 0
         cell.timeLabel.numberOfLines = 0
         cell.titleLabel.numberOfLines = 0
@@ -53,3 +52,4 @@ extension DetailController:UITableViewDelegate,UITableViewDataSource {
         UITableView.automaticDimension
     }
 }
+

@@ -10,27 +10,47 @@ import PanModal
 
 class TopStoryController: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
+    
     var viewModel = TopStoryViewModel()
     private let cellId = "\(TopStoryCell.self)"
     
+    let refreshController = UIRefreshControl()
+    private var coordinator: TopStoryCoordinator?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configreUI()
         configStoryModel()
     }
     
+    func configreUI() {
+        title = "Top Stories"
+        coordinator = TopStoryCoordinator(navigationController: navigationController ?? UINavigationController())
+        refreshController.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
+        collection.refreshControl = refreshController
+        collection.showsVerticalScrollIndicator = false
+        collection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+    }
+    
     func configStoryModel() {
         viewModel.successCallback = {
+            self.refreshController.endRefreshing()
             self.collection.reloadData()
         }
-        viewModel.getTopStory()
+        viewModel.getTopStory(category: .topstorieshome)
     }
     
     @IBAction func topListButton(_ sender: Any) {
-        
+        coordinator?.showClickedCategory2(complete: { category in
+            self.viewModel.getTopStory(category: category)
+        })
     }
-    func configreUI() {
-        collection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
+    
+    @objc func pullToRefresh() {
+        viewModel.getTopStory(category: .topstorieshome)
+        collection.reloadData()
+        viewModel.reset()
     }
     
     @IBAction func logoutButton(_ sender: Any) {
@@ -76,5 +96,10 @@ extension TopStoryController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collection.frame.width, height: 100)
+    }
+}
+extension TopStoryController: CategoryProtocol {
+    func getCategory(category: TopStoryCategory) {
+        viewModel.getTopStory(category: category)
     }
 }

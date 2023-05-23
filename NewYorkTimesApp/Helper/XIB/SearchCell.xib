@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,35 +16,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="341" height="184"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HT8-Uf-d2E">
-                        <rect key="frame" x="0.0" y="0.0" width="341" height="184"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HT8-Uf-d2E">
+                        <rect key="frame" x="0.0" y="0.0" width="341" height="130.33333333333334"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-od-WVV">
-                        <rect key="frame" x="12" y="159" width="317" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygc-ts-8sZ">
+                        <rect key="frame" x="8" y="164.33333333333334" width="33" height="15.666666666666657"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygc-ts-8sZ">
-                        <rect key="frame" x="12.000000000000004" y="130" width="41.333333333333343" height="21"/>
-                        <color key="backgroundColor" systemColor="systemMintColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIu-od-WVV">
+                        <rect key="frame" x="4" y="138.33333333333334" width="333" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="vIu-od-WVV" firstAttribute="top" secondItem="ygc-ts-8sZ" secondAttribute="bottom" constant="8" id="2sw-jb-1eq"/>
-                <constraint firstAttribute="trailing" secondItem="vIu-od-WVV" secondAttribute="trailing" constant="12" id="3Li-Yg-dPu"/>
-                <constraint firstItem="ygc-ts-8sZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="4tX-4I-yOz"/>
-                <constraint firstAttribute="bottom" secondItem="vIu-od-WVV" secondAttribute="bottom" constant="4" id="69Q-KW-OVT"/>
-                <constraint firstAttribute="trailing" secondItem="HT8-Uf-d2E" secondAttribute="trailing" id="ESi-vH-OB1"/>
-                <constraint firstItem="vIu-od-WVV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="12" id="FzO-gD-Nb3"/>
-                <constraint firstItem="HT8-Uf-d2E" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MYn-rM-7nU"/>
-                <constraint firstItem="HT8-Uf-d2E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="UNb-4v-6Vp"/>
-                <constraint firstAttribute="bottom" secondItem="HT8-Uf-d2E" secondAttribute="bottom" id="wd0-Iy-qHB"/>
+                <constraint firstItem="HT8-Uf-d2E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8sb-e3-S8d"/>
+                <constraint firstItem="ygc-ts-8sZ" firstAttribute="top" secondItem="vIu-od-WVV" secondAttribute="bottom" constant="8" id="A7t-V6-1JD"/>
+                <constraint firstItem="vIu-od-WVV" firstAttribute="top" secondItem="HT8-Uf-d2E" secondAttribute="bottom" constant="8" id="Dr0-9A-3hy"/>
+                <constraint firstItem="ygc-ts-8sZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="Rvx-ie-GAJ"/>
+                <constraint firstAttribute="bottom" secondItem="ygc-ts-8sZ" secondAttribute="bottom" constant="4" id="jjt-JB-6SR"/>
+                <constraint firstAttribute="trailing" secondItem="vIu-od-WVV" secondAttribute="trailing" constant="4" id="mks-SR-dtA"/>
+                <constraint firstItem="vIu-od-WVV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="rft-oX-at7"/>
+                <constraint firstItem="HT8-Uf-d2E" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="tjD-zd-8Rp"/>
+                <constraint firstItem="HT8-Uf-d2E" firstAttribute="centerX" secondItem="vIu-od-WVV" secondAttribute="centerX" id="y3V-KD-Dtq"/>
             </constraints>
             <size key="customSize" width="341" height="184"/>
             <connections>
@@ -56,9 +54,4 @@
             <point key="canvasLocation" x="225.19083969465649" y="-4.9295774647887329"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

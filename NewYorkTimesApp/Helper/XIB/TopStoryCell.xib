@@ -25,13 +25,13 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEy-Ud-WaJ">
                         <rect key="frame" x="186" y="4" width="273" height="46.666666666666664"/>
                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgb-T8-y4s">
-                        <rect key="frame" x="186" y="58.666666666666664" width="241" height="14.333333333333336"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cgb-T8-y4s">
+                        <rect key="frame" x="186" y="58.666666666666664" width="245" height="14.333333333333336"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -48,7 +48,7 @@
                 <constraint firstItem="Cgb-T8-y4s" firstAttribute="top" secondItem="xEy-Ud-WaJ" secondAttribute="bottom" constant="8" id="jLo-Yf-ftt"/>
                 <constraint firstItem="xEy-Ud-WaJ" firstAttribute="leading" secondItem="ZgX-ga-jlQ" secondAttribute="trailing" constant="8" id="oaM-AB-kId"/>
                 <constraint firstItem="xEy-Ud-WaJ" firstAttribute="leading" secondItem="ZgX-ga-jlQ" secondAttribute="trailing" constant="8" id="pFL-gq-6OB"/>
-                <constraint firstAttribute="trailing" secondItem="Cgb-T8-y4s" secondAttribute="trailing" constant="40" id="vsi-6P-bOh"/>
+                <constraint firstAttribute="trailing" secondItem="Cgb-T8-y4s" secondAttribute="trailing" constant="36" id="vsi-6P-bOh"/>
             </constraints>
             <size key="customSize" width="467" height="73"/>
             <connections>

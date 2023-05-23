@@ -16,7 +16,7 @@ extension UIImageView {
             }
         }
     }
-let imageUrl = ""
+let imageUrl =  ""
 
 
 

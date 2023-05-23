@@ -11,7 +11,7 @@ class SearchManager {
     
     func getSearchItems(text: String, complete: @escaping ((Search?, String?) -> ())) {
         NetworkManager.shared.request(model: Search.self,
-                                      url: SearchEndpoint.search.path + "q=election\(text)",
+                                      url: SearchEndpoint.search.path + "&q=\(text)",
                                       complete: complete)
                                      
         }
