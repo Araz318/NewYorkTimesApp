@@ -7,16 +7,13 @@
 
 import UIKit
 import PanModal
-
 class TopStoryController: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
+    var viewModel           = TopStoryViewModel()
+    private let cellId      = "\(TopStoryCell.self)"
+    let refreshController   = UIRefreshControl()
+    private var coordinator : TopStoryCoordinator?
     
-    var viewModel = TopStoryViewModel()
-    private let cellId = "\(TopStoryCell.self)"
-    
-    let refreshController = UIRefreshControl()
-    private var coordinator: TopStoryCoordinator?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,21 +50,6 @@ class TopStoryController: UIViewController {
         viewModel.reset()
     }
     
-    @IBAction func logoutButton(_ sender: Any) {
-        let alert = UIAlertController(title: "Warning", message: "Are you sure to log out?", preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Yes", style: .default) { (_) in
-            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let sceneDelegate = scene.delegate as? SceneDelegate {
-                UserDefaults.standard.set(false, forKey: "loggedIn")
-                sceneDelegate.setLoginRootController(windowScene: scene)
-            }
-        }
-        let noAction = UIAlertAction(title: "No", style: .cancel, handler: nil)
-        alert.addAction(yesAction)
-        alert.addAction(noAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
     func rootController() {
         if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let sceneDelegate = scene.delegate as? SceneDelegate {
@@ -88,10 +70,7 @@ extension TopStoryController: UICollectionViewDataSource, UICollectionViewDelega
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DetailController") as! DetailController
-        
-        controller.story = viewModel.topstories[indexPath.item]
-        navigationController?.show(controller, sender: nil)
+        coordinator?.clickedController(indexPath: indexPath, viewModel: viewModel)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

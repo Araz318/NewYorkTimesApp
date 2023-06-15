@@ -7,10 +7,11 @@
 
 import UIKit
 protocol TopStoryProtocol {
-    var timetext: String { get }
-    var texttext: String { get }
-    var imageUrl: String { get }
+    var timetext:     String { get }
+    var texttext:     String { get }
+    var imageUrl:     String { get }
     var abstracttext: String { get }
+    var urltext:      String { get }
 }
 
 class TopStoryCell: UICollectionViewCell {
@@ -30,5 +31,5 @@ class TopStoryCell: UICollectionViewCell {
         timeLabel.text = data.timetext
         
     }
-
+    
 }

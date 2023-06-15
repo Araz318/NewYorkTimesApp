@@ -12,29 +12,42 @@ class SearchController: UIViewController {
     @IBOutlet weak var collection: UICollectionView!
     var searchModel = SearchViewModel()
     private let cellId = "\(SearchCell.self)"
-    
+    var coordinator: SearchCoordinator?
     override func viewDidLoad() {
         super.viewDidLoad()
         configreUI()
         configsearchModel()
-        title = "Search"
+        
     }
+    
     func configsearchModel() {
         searchModel.successCallback = {
             self.collection.reloadData()
         }
+        searchModel.errorCallback = { error in
+            //show in alert
+        }
     }
     
     func configreUI() {
+        coordinator = SearchCoordinator(navigationController: self.navigationController!)
+        title = "Search"
         collection.register(UINib(nibName: cellId, bundle: nil), forCellWithReuseIdentifier: cellId)
     }
     
     
     @IBAction func searchTextFieldAction(_ sender: Any) {
         if !(searchTextField.text?.isEmpty ?? false) {
+            print("search: \(searchTextField.text ?? "")")
             searchModel.getSearch(text: searchTextField.text ?? "")
         }
+        else {
+            print("empty search")
+            searchModel.search.removeAll()
+            collection.reloadData()
+        }
     }
+    
 }
 extension SearchController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,9 +60,7 @@ extension SearchController: UICollectionViewDataSource, UICollectionViewDelegate
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "SearchDetailController") as! SearchDetailController
-        controller.search = searchModel.search[indexPath.item]
-        navigationController?.show(controller, sender: nil)
+        coordinator?.clickedController(indexPath: indexPath, viewModel: searchModel)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

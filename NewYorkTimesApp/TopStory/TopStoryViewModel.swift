@@ -13,8 +13,8 @@ struct Category {
 
 class TopStoryViewModel {
     
-    var item : TopStory?
-    var topstories = [TopStoryResult]()
+    var item :            TopStory?
+    var topstories      = [TopStoryResult]()
     var category        = [Category]()
     var successCallback: (()->())?
     

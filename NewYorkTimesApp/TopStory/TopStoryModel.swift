@@ -11,12 +11,16 @@ struct TopStory: Codable {
     enum CodingKeys: String, CodingKey {
         case status, copyright, section
         case lastUpdated = "last_updated"
-        case numResults = "num_results"
+        case numResults  = "num_results"
         case results
     }
 }
 
 struct TopStoryResult: Codable, TopStoryProtocol {
+    var urltext: String {
+        url ?? ""
+    }
+    
     
     var abstracttext: String {
         abstract ?? ""
@@ -36,6 +40,7 @@ struct TopStoryResult: Codable, TopStoryProtocol {
         } else {
             return ""
         }
+        
     }
     
     let section, subsection, title, abstract: String?
@@ -50,10 +55,10 @@ struct TopStoryResult: Codable, TopStoryProtocol {
     
     enum CodingKeys: String, CodingKey {
         case section, subsection, title, abstract, url, uri, byline
-        case itemType = "item_type"
-        case updatedDate = "updated_date"
-        case createdDate = "created_date"
-        case publishedDate = "published_date"
+        case itemType          = "item_type"
+        case updatedDate       = "updated_date"
+        case createdDate       = "created_date"
+        case publishedDate     = "published_date"
         case materialTypeFacet = "material_type_facet"
         case kicker
         case desFacet = "des_facet"

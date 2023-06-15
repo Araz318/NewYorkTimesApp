@@ -9,5 +9,7 @@ target 'NewYorkTimesApp' do
  pod 'SDWebImage'
  pod  'PanModal'
  pod 'GoogleSignIn'
+ 
+ pod  'Firebase'
 
 end

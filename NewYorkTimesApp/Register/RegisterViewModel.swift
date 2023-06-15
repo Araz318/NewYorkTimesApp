@@ -6,38 +6,38 @@
 //
 
 import Foundation
-class RegisterViewModel {
-    static let shared = RegisterViewModel()
+class ViewModel {
+    static let shared = ViewModel()
     var profiles = [Profile]()
-    var backCallBack: (()->())?
-    
-    func getFilePath() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let docDirectory = paths[0]
-        let path = docDirectory.appendingPathComponent("Users.json")
-        print(path)
-        return path
+    var backCallBack: (() -> Void)?
+    let fileAdapter = FileAdapter.shared
+
+    func writeDataToFile() {
+        fileAdapter.writeDataToFile(profiles: profiles, backCallBack: backCallBack)
     }
-    
-    func writeToJsonFile() {
-        do {
-            let data = try JSONEncoder().encode(profiles)
-            try data.write(to: getFilePath())
-            self.backCallBack?()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
+
     func readDataFromFile() {
-        if let data = try? Data(contentsOf: getFilePath()) {
-            do {
-                profiles = try JSONDecoder().decode([Profile].self, from: data)
-            } catch {
-                print(error.localizedDescription)
-            }
-        } else {
-            print("file not exist")
+        profiles = fileAdapter.readDataFromFile()
+    }
+
+    func isEmailRegistered(email: String) -> Bool {
+        return profiles.contains { $0.email == email }
+    }
+
+    func registerUser(profile: Profile) -> Bool {
+        let isRegistered = isEmailRegistered(email: profile.email)
+        if !isRegistered {
+            profiles.append(profile)
+            return true
         }
+        return false
+    }
+
+    func validateLogin(email: String, password: String) -> Bool {
+        return profiles.contains { $0.email == email && $0.password == password }
+    }
+
+    func getProfile(email: String) -> Profile? {
+        return profiles.first { $0.email == email }
     }
 }
