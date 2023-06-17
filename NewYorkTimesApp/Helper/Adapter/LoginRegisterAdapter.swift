@@ -10,6 +10,14 @@ import UIKit
 class FileAdapter {
     static let shared = FileAdapter()
     
+//
+//    if User....standr == true {
+//
+//        l;l;
+//    } else if (UserDefaults....standart == false) {
+//        // register
+//    }
+    
     private func getFilePath() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let docDirectory = paths[0]

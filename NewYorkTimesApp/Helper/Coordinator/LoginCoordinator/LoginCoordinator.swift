@@ -14,9 +14,17 @@ class LoginCoordinator: CoreCoordinator {
         self.navigationController = navigationController
     }
 
-    func showClickedController() {
+    func showClickedControllerr() {
         let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "RegisterController") as! RegisterController
         navigationController.show(controller, sender: nil)
     }
+    func showClickedController(fullName: String?, emailAddress: String?) {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "RegisterController") as! RegisterController
+        controller.fullName = fullName
+        controller.emailAddress = emailAddress
+        navigationController.show(controller, sender: nil)
+    }
+    
+    
 }
 

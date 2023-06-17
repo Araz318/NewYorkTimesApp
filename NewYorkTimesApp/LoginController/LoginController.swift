@@ -11,21 +11,43 @@ import GoogleSignIn
 class LoginController: UIViewController {
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
-    // let viewModel = LoginViewModel()
     private var coordinator: LoginCoordinator?
     let viewModel = ViewModel.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.readDataFromFile()
+        configration()
+    }
+    
+    func configration() {
         coordinator = LoginCoordinator(navigationController: navigationController!)
     }
     
     @IBAction func newaccountButton(_ sender: Any) {
-        coordinator?.showClickedController()
+        coordinator?.showClickedControllerr()
     }
     
-    @IBAction func googleLogin(_ sender: Any) {
-        
+    @IBAction func googleLogin(_ sender: UIButton) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else { return }
+            
+            guard let signInResult = signInResult else { return }
+            
+            let user = signInResult.user
+            let emailAddress = user.profile?.email
+            let fullName = user.profile?.name
+            _ = user.profile?.givenName
+            _ = user.profile?.familyName
+            _ = user.profile?.imageURL(withDimension: 320)
+            
+            if self.viewModel.userExist(email: emailAddress ?? "") {
+                self.emailText.text = emailAddress
+            } else {
+                self.coordinator?.showClickedController(fullName: fullName, emailAddress: emailAddress)
+            }
+            
+        }
     }
     
     @IBAction func loginButton(_ sender: Any) {
@@ -35,6 +57,7 @@ class LoginController: UIViewController {
         {
             if viewModel.validateLogin(email: email, password: password) {
                 UserDefaults.standard.set(true, forKey: "loggedIn")
+                
                 
                 if let profile = viewModel.getProfile(email: email) {
                     UserDefaults.standard.set(profile.fullname, forKey: "loggedInName")
@@ -47,7 +70,7 @@ class LoginController: UIViewController {
                 }
             }
             else {
-                showErrorAlert(message: "Girilen e-posta veya şifre yanlış.")
+                showErrorAlert(message: "Email or password entered is incorrect.")
             }
         }
     }

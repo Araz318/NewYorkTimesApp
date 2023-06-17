@@ -13,12 +13,20 @@ class RegisterController: UIViewController {
     @IBOutlet weak var passwordText: UITextField!
     @IBOutlet weak var okButton: UIButton!
     
-    let viewModel = ViewModel.shared
-    var isAccepted = false
+    var emailAddress: String?
+    var fullName:     String?
+    let viewModel  =  ViewModel.shared
+    var isAccepted =  false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel.readDataFromFile()
+        configureTextFields()
+    }
+    func configureTextFields() {
+        nameText.text = fullName
+        emailText.text = emailAddress
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,10 +55,11 @@ class RegisterController: UIViewController {
     }
     
     @IBAction func registerButton(_ sender: Any) {
+        
         guard let fullname = nameText.text, !fullname.isEmpty,
               let email = emailText.text, !email.isEmpty,
               let password = passwordText.text, !password.isEmpty else {
-            showErrorAlert(message: "Lütfen tüm alanları doldurun.")
+            showErrorAlert(message: "Please fill in all fields.")
             return
         }
         
@@ -58,12 +67,12 @@ class RegisterController: UIViewController {
         let isValidPassword = password.isValidPassword()
         
         if !isValidEmail {
-            showErrorAlert(message: "Geçerli bir e-posta adresi giriniz.")
+            showErrorAlert(message: "Please enter a valid e-mail address.")
             return
         }
         
         if !isValidPassword {
-            showErrorAlert(message: "Şifreniz en az 6, en fazla 10 karakter uzunluğunda olmalıdır.")
+            showErrorAlert(message: "Your password must be a minimum of 6 characters and a maximum of 10 characters.")
             return
         }
         
@@ -72,18 +81,22 @@ class RegisterController: UIViewController {
         if isAccepted {
             if viewModel.registerUser(profile: profile) {
                 viewModel.writeDataToFile()
+                
+                if let loginController = self.navigationController?.viewControllers.first as? LoginController {
+                    loginController.emailText.text = email
+                    loginController.passwordText.text = password
+                }
+                
                 viewModel.backCallBack?()
             } else {
-                showErrorAlert(message: "Bu e-posta adresi zaten kayıtlı.")
+                showErrorAlert(message: "This e-mail address is already registered.")
             }
         } else {
-            showErrorAlert(message: "Lütfen şartı kabul edin.")
+            showErrorAlert(message: "Please accept the condition.")
         }
-        
     }
+    
 }
-
-
 
 
 

@@ -8,8 +8,7 @@
 import Foundation
 
 class FavoriteViewModel {
-   // var story: TopStoryResult?
-    
+  
     var items = [TopStoryResult]()
     
     private var adapter = FileManagerAdapter()

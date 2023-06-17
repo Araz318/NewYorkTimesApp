@@ -41,6 +41,7 @@
 		9437B7B42A2CD07200B5BFA1 /* FavoriteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9437B7B22A2CD07200B5BFA1 /* FavoriteCell.xib */; };
 		945BA0812A31EC14007420CE /* AccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945BA0802A31EC14007420CE /* AccountController.swift */; };
 		946422E62A361600000A284A /* String+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946422E52A361600000A284A /* String+Validation.swift */; };
+		9489B4DB2A3CB18F00C5DAF9 /* credentials.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9489B4DA2A3CB18F00C5DAF9 /* credentials.plist */; };
 		94AF40442A0FFCF6009BA5F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF40432A0FFCF6009BA5F3 /* AppDelegate.swift */; };
 		94AF40462A0FFCF6009BA5F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF40452A0FFCF6009BA5F3 /* SceneDelegate.swift */; };
 		94AF404B2A0FFCF6009BA5F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94AF40492A0FFCF6009BA5F3 /* Main.storyboard */; };
@@ -106,6 +107,7 @@
 		9437B7B22A2CD07200B5BFA1 /* FavoriteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteCell.xib; sourceTree = "<group>"; };
 		945BA0802A31EC14007420CE /* AccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountController.swift; sourceTree = "<group>"; };
 		946422E52A361600000A284A /* String+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Validation.swift"; sourceTree = "<group>"; };
+		9489B4DA2A3CB18F00C5DAF9 /* credentials.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = credentials.plist; sourceTree = "<group>"; };
 		94AF40402A0FFCF6009BA5F3 /* NewYorkTimesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewYorkTimesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AF40432A0FFCF6009BA5F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94AF40452A0FFCF6009BA5F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				94AF40512A0FFCF8009BA5F3 /* LaunchScreen.storyboard */,
 				94AF40542A0FFCF8009BA5F3 /* Info.plist */,
 				94AF404C2A0FFCF6009BA5F3 /* NewYorkTimesApp.xcdatamodeld */,
+				9489B4DA2A3CB18F00C5DAF9 /* credentials.plist */,
 			);
 			path = NewYorkTimesApp;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				94AF40502A0FFCF8009BA5F3 /* Assets.xcassets in Resources */,
 				9437B7B42A2CD07200B5BFA1 /* FavoriteCell.xib in Resources */,
 				942850612A222B38002C1130 /* MovieCell.xib in Resources */,
+				9489B4DB2A3CB18F00C5DAF9 /* credentials.plist in Resources */,
 				94AF404B2A0FFCF6009BA5F3 /* Main.storyboard in Resources */,
 				9428506A2A235E5A002C1130 /* MovieDetailCell.xib in Resources */,
 			);

@@ -11,19 +11,29 @@ class ViewModel {
     var profiles = [Profile]()
     var backCallBack: (() -> Void)?
     let fileAdapter = FileAdapter.shared
-
-    func writeDataToFile() {
+    
+    func userExist(email: String) -> Bool {
+        readDataFromFile()
+        if profiles.contains(where: { $0.email == email }) {
+            return true
+        } else {
+            return false
+        }
+//        UserDefaults.standard.bool(forKey: "loggedIn")
+    }
+    
+    func writeDataToFile()  {
         fileAdapter.writeDataToFile(profiles: profiles, backCallBack: backCallBack)
     }
-
+    
     func readDataFromFile() {
         profiles = fileAdapter.readDataFromFile()
     }
-
+    
     func isEmailRegistered(email: String) -> Bool {
         return profiles.contains { $0.email == email }
     }
-
+    
     func registerUser(profile: Profile) -> Bool {
         let isRegistered = isEmailRegistered(email: profile.email)
         if !isRegistered {
@@ -32,11 +42,11 @@ class ViewModel {
         }
         return false
     }
-
+    
     func validateLogin(email: String, password: String) -> Bool {
         return profiles.contains { $0.email == email && $0.password == password }
     }
-
+    
     func getProfile(email: String) -> Profile? {
         return profiles.first { $0.email == email }
     }
