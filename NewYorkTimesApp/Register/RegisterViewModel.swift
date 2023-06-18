@@ -19,7 +19,6 @@ class ViewModel {
         } else {
             return false
         }
-//        UserDefaults.standard.bool(forKey: "loggedIn")
     }
     
     func writeDataToFile()  {
